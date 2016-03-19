@@ -1,0 +1,61 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+div {
+	padding: 20px;
+}
+img {
+	width: 80px;
+	height: 80px;
+	background-color: #eee;
+	outline: 1px solid #999;
+}
+.clear {
+	clear: both;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+.border {
+	outline: 1px solid #999;
+}
+.member-logo {
+	margin-bottom: 20px;
+}
+.member-logo:last-child {
+	margin: 0;
+}
+#body {
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	min-width: 500px;
+}
+#box {
+	background-color: #eee;
+	margin: 20px;
+}
+#title {
+	background-color: white;
+	width: 160px;
+	float: left;
+	word-wrap: break-word;
+}
+#member {
+	background-color: white;
+	width: 80px;
+	float: right;
+}
+#introduce {
+	background-color: white;
+	margin-left: 220px;
+	margin-right: 140px;
+	word-wrap: break-word;
+}
+#team-logo {
+	float: left;
+	margin-right: 20px;
+}
