@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "iconfont";
+    src: url('../font/iconfont.eot'); /* IE9*/
+    src: url('../font/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/iconfont.woff') format('woff'), /* chrome, firefox */
+    url('../font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.icon-font {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-right:before {
+    content: "\e60d";
+}
+
+.icon-left:before {
+    content: "\e602";
+}
+
+.icon-down:before {
+    content: "\e609";
+}
+
+.icon-calendar:before {
+    content: "\e614";
+}
+
+.icon-report:before {
+    content: "\e612";
+}
+
+.icon-folder:before {
+    content: "\e6a7";
+}
+
+.icon-file:before {
+    content: "\e6fa";
+}
+
+.icon-star:before {
+    content: "\e6e3";
+}
+
+.icon-shares:before {
+    content: "\e623";
+}
+
+.icon-book:before {
+    content: "\e61c";
+}
+
+.icon-search:before {
+    content: "\e600";
+}
+
+.icon-user:before {
+    content: "\e61e";
+}
