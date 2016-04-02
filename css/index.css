@@ -5,3 +5,92 @@ html, body {
     width: 100%;
     height: 100%;
 }
+@media screen and (min-device-width: 1000px) {
+    #main {
+        position: absolute;
+        bottom: 8%;
+        left: 4%;
+    }
+    #head-map {
+        display: -webkit-flex;
+        display: flex;
+        align-items: flex-end;
+    }
+    #head {
+        width: 180px;
+        height: 180px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+        border: 10px #313D4D solid;
+    }
+    #location {
+        width: 8px;
+        height: 8px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background-color: white;
+        position: relative;
+        top: 26%;
+        left: 78%;
+    }
+    #map {
+        width: 290px;
+        height: 107px;
+        margin-left: 30px;
+    }
+    #map svg {
+        width: 290px;
+        height: 107px;
+        margin-top: -8px;
+    }
+    #introduce {
+        margin: 30px 0;
+        display: -webkit-flex;
+        display: flex;
+    }
+    #block {
+        width: 10px;
+        background-color: #676C73;
+        margin-right: 10px;
+    }
+    #name-description {
+        color: white;
+        font-family: cursive;
+    }
+    #name {
+        font-size: 1.8rem;
+    }
+    #city {
+        font-size: 1.1rem;
+    }
+    #description {
+    }
+    #icons {
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #icons a{
+        display: block;
+        width: 65px;
+        height: 65px;
+        line-height: 65px;
+        text-align: center;
+        color: #676C73;
+        font-size: 35px;
+        text-decoration: none;
+        -webkit-transition: linear 0.2s;
+        -moz-transition: linear 0.2s;
+        -ms-transition: linear 0.2s;
+        -o-transition: linear 0.2s;
+        transition: linear 0.2s;
+    }
+    #icons a:hover {
+        font-size: 65px;
+        color: white;
+    }
+}
+@media screen and (max-device-width: 1000px){
+}
