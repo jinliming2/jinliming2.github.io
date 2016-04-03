@@ -1,9 +1,22 @@
+@font-face {
+    font-family: "web-font";
+    src: url('./fonts/Web/web.eot'); /* IE9*/
+    src: url('./fonts/Web/web.eot#web-') format('embedded-opentype'), /* IE6-IE8 */
+    url('./fonts/Web/web.woff') format('woff'), /* chrome, firefox */
+    url('./fonts/Web/web.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('./fonts/Web/web.svg#web-') format('svg'); /* iOS 4.1- */
+}
 html, body {
     background-color: #272E38;
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
+    font-size: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 @media screen and (min-device-width: 1000px) {
     #main {
@@ -57,7 +70,11 @@ html, body {
     }
     #name-description {
         color: white;
-        font-family: cursive;
+        font-family: "web-font", "Comic Sans MS", "隶书", cursive;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
     }
     #name {
         font-size: 1.8rem;
@@ -66,6 +83,7 @@ html, body {
         font-size: 1.1rem;
     }
     #description {
+        font-size: 1rem;
     }
     #icons {
         display: -webkit-flex;
@@ -81,11 +99,11 @@ html, body {
         color: #676C73;
         font-size: 35px;
         text-decoration: none;
-        -webkit-transition: linear 0.2s;
-        -moz-transition: linear 0.2s;
-        -ms-transition: linear 0.2s;
-        -o-transition: linear 0.2s;
-        transition: linear 0.2s;
+        -webkit-transition: ease-out 0.2s;
+        -moz-transition: ease-out 0.2s;
+        -o-transition: ease-out 0.2s;
+        transition: ease-out 0.2s;
+        float: left;  /** For IE = 9 */
     }
     #icons a:hover {
         font-size: 65px;
@@ -93,4 +111,88 @@ html, body {
     }
 }
 @media screen and (max-device-width: 1000px){
+    #main {
+        margin-top: 5%;
+        width: 100%;
+    }
+    #head-map {
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #head {
+        width: 120px;
+        height: 120px;
+        -webkit-border-radius: 70px;
+        -moz-border-radius: 70px;
+        border-radius: 70px;
+        border: 10px #313D4D solid;
+    }
+    #location {
+        width: 8px;
+        height: 8px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background-color: white;
+        position: relative;
+        top: 26%;
+        left: 78%;
+    }
+    #map {
+        width: 290px;
+        height: 107px;
+        margin: 10px 0 0 10px;
+    }
+    #map svg {
+        width: 290px;
+        height: 107px;
+        margin-top: -8px;
+    }
+    #introduce {
+        margin: 8% 0;
+        display: -webkit-flex;
+        display: flex;
+    }
+    #block {
+        width: 10px;
+        background-color: #676C73;
+        margin: 0 10px 0 5%;
+    }
+    #name-description {
+        color: white;
+        font-family: "web-font", "Comic Sans MS", "隶书", cursive;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+        margin-right: 10px;
+    }
+    #name {
+        font-size: 1.8rem;
+    }
+    #city {
+        font-size: 1.1rem;
+    }
+    #description {
+        font-size: 1rem;
+    }
+    #icons {
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #icons a{
+        display: block;
+        width: 65px;
+        height: 65px;
+        line-height: 65px;
+        text-align: center;
+        color: #676C73;
+        font-size: 40px;
+        text-decoration: none;
+    }
 }
