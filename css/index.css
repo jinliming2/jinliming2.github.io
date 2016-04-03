@@ -18,6 +18,17 @@ html, body {
     -ms-user-select: none;
     user-select: none;
 }
+input {
+    width: 100%;
+    line-height: 30px;
+    border: none;
+}
+.select {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
 @media screen and (min-device-width: 1000px) {
     #main {
         position: absolute;
@@ -71,10 +82,6 @@ html, body {
     #name-description {
         color: white;
         font-family: "web-font", "Comic Sans MS", "隶书", cursive;
-        -webkit-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-        user-select: text;
     }
     #name {
         font-size: 1.8rem;
@@ -90,7 +97,7 @@ html, body {
         display: flex;
         flex-wrap: wrap;
     }
-    #icons a{
+    #icons a {
         display: block;
         width: 65px;
         height: 65px;
@@ -103,14 +110,20 @@ html, body {
         -moz-transition: ease-out 0.2s;
         -o-transition: ease-out 0.2s;
         transition: ease-out 0.2s;
-        float: left;  /** For IE = 9 */
+        float: left; /** For IE = 9 */
     }
     #icons a:hover {
         font-size: 65px;
         color: white;
     }
+    .pc {
+        display: block !important;
+    }
+    .mobile {
+        display: none !important;
+    }
 }
-@media screen and (max-device-width: 1000px){
+@media screen and (max-device-width: 1000px) {
     #main {
         margin-top: 5%;
         width: 100%;
@@ -164,10 +177,6 @@ html, body {
     #name-description {
         color: white;
         font-family: "web-font", "Comic Sans MS", "隶书", cursive;
-        -webkit-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-        user-select: text;
         margin-right: 10px;
     }
     #name {
@@ -185,7 +194,7 @@ html, body {
         flex-wrap: wrap;
         justify-content: center;
     }
-    #icons a{
+    #icons a {
         display: block;
         width: 65px;
         height: 65px;
@@ -194,5 +203,265 @@ html, body {
         color: #676C73;
         font-size: 40px;
         text-decoration: none;
+    }
+    .pc {
+        display: none !important;
+    }
+
+    .mobile {
+        display: block !important;
+    }
+}
+#messageBody, #messageShadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#messageShadow {
+    background-color: black;
+}
+#messageBox {
+    width: 500px;
+    min-width: 100px;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+#messageTitle {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    padding: 0 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #676C73;
+}
+#messageClose {
+    float: right;
+    margin: 0 12px;
+    width: 26px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    color: darkred;
+    cursor: pointer;
+    -webkit-transition: ease-out 0.2s;
+    -moz-transition: ease-out 0.2s;
+    -o-transition: ease-out 0.2s;
+    transition: ease-out 0.2s;
+}
+#messageClose:hover {
+    font-size: 26px;
+    color: red;
+}
+#messageContent {
+    width: 100%;
+    padding: 5px 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+@-webkit-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.75;
+    }
+}
+@-khtml-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.75;
+    }
+}
+@-moz-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.75;
+    }
+}
+@-ms-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.75;
+    }
+}
+@-o-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.75;
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.75;
+    }
+}
+@-webkit-keyframes display {
+    from {
+        margin-top: -1000px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+@-khtml-keyframes display {
+    from {
+        margin-top: -1000px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+@-moz-keyframes display {
+    from {
+        margin-top: -1000px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+@-ms-keyframes display {
+    from {
+        margin-top: -1000px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+@-o-keyframes display {
+    from {
+        margin-top: -1000px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+@keyframes display {
+    from {
+        margin-top: -1000px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+@-webkit-keyframes fade-out {
+    from {
+        opacity: 0.75;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-khtml-keyframes fade-out {
+    from {
+        opacity: 0.75;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-moz-keyframes fade-out {
+    from {
+        opacity: 0.75;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-ms-keyframes fade-out {
+    from {
+        opacity: 0.75;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-o-keyframes fade-out {
+    from {
+        opacity: 0.75;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fade-out {
+    from {
+        opacity: 0.75;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes close {
+    from {
+        margin-top: 0;
+    }
+    to {
+        margin-top: 1000px;
+    }
+}
+@-khtml-keyframes close {
+    from {
+        margin-top: 0;
+    }
+    to {
+        margin-top: 1000px;
+    }
+}
+@-moz-keyframes close {
+    from {
+        margin-top: 0;
+    }
+    to {
+        margin-top: 1000px;
+    }
+}
+@-ms-keyframes close {
+    from {
+        margin-top: 0;
+    }
+    to {
+        margin-top: 1000px;
+    }
+}
+@-o-keyframes close {
+    from {
+        margin-top: 0;
+    }
+    to {
+        margin-top: 1000px;
+    }
+}
+@keyframes close {
+    from {
+        margin-top: 0;
+    }
+    to {
+        margin-top: 1000px;
     }
 }
