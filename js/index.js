@@ -61,7 +61,7 @@ function aliPay() {
     msgbox("支付宝 AliPay", msg, "auto");
 }
 function aliPayMobile() {
-    var msg = '<input class="select" readonly="readonly" value="#吱口令#长按复制此条消息，打开支付宝即可添加我为好友ZsmOuO96CR"/>';
+    var msg = '<textarea class="select" readonly="readonly">#吱口令#长按复制此条消息，打开支付宝即可添加我为好友ZsmOuO96CR</textarea>';
     msgbox("支付宝 AliPay", msg, "90%");
 }
 function weChat() {

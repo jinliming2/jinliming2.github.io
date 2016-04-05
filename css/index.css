@@ -18,10 +18,13 @@ html, body {
     -ms-user-select: none;
     user-select: none;
 }
-input {
+textarea {
     width: 100%;
     line-height: 30px;
+    height: 90px;
+    resize: none;
     border: none;
+    word-break: break-all;
 }
 .select {
     -webkit-user-select: text;
@@ -230,11 +233,15 @@ input {
 #messageBox {
     width: 500px;
     min-width: 100px;
+    max-width: 100%;
     background-color: white;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     overflow: hidden;
+}
+#messageBox *  {
+    max-width: 100%;
 }
 #messageTitle {
     width: 100%;
