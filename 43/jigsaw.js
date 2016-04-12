@@ -21,6 +21,16 @@
                 height = height || 200;
                 _element.style.width = width + "px";
                 _element.style.height = height + "px";
+                //元素CSS
+                _element.style.display = "flex";
+                _element.style.webkitFlexFlow = _element.style.flexFlow = "row nowrap";
+                _element.style.webkitJustifyContent = _element.style.justifyContent = "space-around";
+                _element.style.webkitAlignItems = _element.style.alignItems = "stretch";
+                for(var div in _imagesDiv) {
+                    if(_imagesDiv.hasOwnProperty(div)) {
+                        _imagesDiv[div].getElementsByTagName("img")[0].style.float = "right";
+                    }
+                }
                 //执行设置
                 switch(_imagesDiv.length) {
                     case 1:
@@ -66,9 +76,9 @@
                         right.appendChild(_imagesDiv[1]);
                         //右边容器样式
                         right.style.display = "flex";
-                        right.style.flexFlow = "column nowrap";
-                        right.style.justifyContent = "space-around";
-                        right.style.alignItems = "stretch";
+                        right.style.webkitFlexFlow = right.style.flexFlow = "column nowrap";
+                        right.style.webkitJustifyContent = right.style.justifyContent = "space-around";
+                        right.style.webkitAlignItems = right.style.alignItems = "stretch";
                         //将右边容器添加进来
                         _element.appendChild(right);
                         break;
@@ -97,9 +107,9 @@
                         right.appendChild(_imagesDiv[0]);
                         //容器样式
                         left.style.display = right.style.display = "flex";
-                        left.style.flexFlow = right.style.flexFlow = "column nowrap";
-                        left.style.justifyContent = right.style.justifyContent = "space-around";
-                        left.style.alignItems = right.style.alignItems = "stretch";
+                        left.style.webkitFlexFlow = left.style.flexFlow = right.style.webkitFlexFlow = right.style.flexFlow = "column nowrap";
+                        left.style.webkitJustifyContent = left.style.justifyContent = right.webkitJustifyContent = right.style.justifyContent = "space-around";
+                        left.style.webkitAlignItems = left.style.alignItems = right.style.webkitAlignItems = right.style.alignItems = "stretch";
                         //将容器添加进来
                         _element.appendChild(left);
                         _element.appendChild(right);
@@ -134,14 +144,11 @@
                         right.appendChild(_imagesDiv[0]);
                         right.appendChild(_imagesDiv[0]);
                         //容器样式
-                        left.style.display = right.style.display = "flex";
-                        left.style.flexFlow = right.style.flexFlow = "column nowrap";
-                        left.style.justifyContent = right.style.justifyContent = "space-around";
-                        left.style.alignItems = right.style.alignItems = "stretch";
-                        leftBottom.style.display = "flex";
-                        leftBottom.style.flexFlow = "row nowrap";
-                        leftBottom.style.justifyContent = "space-around";
-                        leftBottom.style.alignItems = "stretch";
+                        left.style.display = right.style.display = leftBottom.style.display = "flex";
+                        left.style.webkitFlexFlow = left.style.flexFlow = right.style.webkitFlexFlow = right.style.flexFlow = "column nowrap";
+                        left.style.webkitJustifyContent = left.style.justifyContent = right.style.webkitJustifyContent = right.style.justifyContent = leftBottom.style.webkitJustifyContent = leftBottom.style.justifyContent = "space-around";
+                        left.style.webkitAlignItems = left.style.alignItems = right.style.webkitAlignItems = right.style.alignItems = leftBottom.style.webkitAlignItems = leftBottom.style.alignItems = "stretch";
+                        leftBottom.style.webkitFlexFlow = leftBottom.style.flexFlow = "row nowrap";
                         //将容器添加进来
                         left.appendChild(leftBottom);
                         _element.appendChild(left);
@@ -182,14 +189,11 @@
                         right.appendChild(_imagesDiv[0]);
                         right.appendChild(_imagesDiv[0]);
                         //容器样式
-                        left.style.display = right.style.display = "flex";
-                        left.style.flexFlow = right.style.flexFlow = "column nowrap";
-                        left.style.justifyContent = right.style.justifyContent = "space-around";
-                        left.style.alignItems = right.style.alignItems = "stretch";
-                        leftBottom.style.display = "flex";
-                        leftBottom.style.flexFlow = "row nowrap";
-                        leftBottom.style.justifyContent = "space-around";
-                        leftBottom.style.alignItems = "stretch";
+                        left.style.display = right.style.display = leftBottom.style.display = "flex";
+                        left.style.webkitFlexFlow = left.style.flexFlow = right.style.webkitFlexFlow = right.style.flexFlow = "column nowrap";
+                        left.style.webkitJustifyContent = left.style.justifyContent = right.style.webkitJustifyContent = right.style.justifyContent = leftBottom.style.webkitJustifyContent = leftBottom.style.justifyContent = "space-around";
+                        left.style.webkitAlignItems = left.style.alignItems = right.style.webkitAlignItems = right.style.alignItems = leftBottom.style.webkitAlignItems = leftBottom.style.alignItems = "stretch";
+                        leftBottom.style.webkitFlexFlow = leftBottom.style.flexFlow = "row nowrap";
                         //将容器添加进来
                         left.appendChild(leftBottom);
                         _element.appendChild(left);
