@@ -3,14 +3,28 @@
  */
 "use strict";
 (function() {
+    /**
+     * 拼图布局
+     * @param id 容器id
+     * @returns object 拼图布局对象
+     * @constructor
+     */
     window.PicJigsaw = function(id) {
-        //对象构造器
+        /**
+         * 拼图布局构造器
+         * @param id 容器id
+         * @returns {picJigsaw} 拼图布局对象
+         */
         var picJigsaw = function(id) {
             //获取元素
             var _element = document.getElementById(id);
             //获取图片div
             var _imagesDiv = _element.getElementsByTagName("div");
-            //初始化
+            /**
+             * 初始化
+             * @param width 总宽度
+             * @param height 总高度
+             */
             this.init = function(width, height) {
                 //判断图片数量
                 if(_imagesDiv.length > 6) {
