@@ -40,10 +40,8 @@
                 _element.style.webkitFlexFlow = _element.style.flexFlow = "row nowrap";
                 _element.style.webkitJustifyContent = _element.style.justifyContent = "space-around";
                 _element.style.webkitAlignItems = _element.style.alignItems = "stretch";
-                for(var div in _imagesDiv) {
-                    if(_imagesDiv.hasOwnProperty(div)) {
-                        _imagesDiv[div].getElementsByTagName("img")[0].style.float = "right";
-                    }
+                for(var div = 0; div < _imagesDiv.length; div++) {
+                    _imagesDiv[div].getElementsByTagName("img")[0].style.float = "right";
                 }
                 //执行设置
                 switch(_imagesDiv.length) {
