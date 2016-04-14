@@ -78,8 +78,9 @@
                         //第三张图片
                         var img2 = _imagesDiv[2].getElementsByTagName("img")[0];
                         //设置图片大小
-                        img1.style.width = img1.style.height = img2.style.width = img2.style.height = Math.round(height / 2) + "px";
-                        img0.style.width = width - img1.width + "px";
+                        var w = Math.round(height / 2);
+                        img1.style.width = img1.style.height = img2.style.width = img2.style.height = w + "px";
+                        img0.style.width = width - w + "px";
                         img0.style.height = height + "px";
                         //创建右边容器
                         var right = document.createElement("div");
@@ -105,10 +106,12 @@
                         //第四张图片
                         var img3 = _imagesDiv[3].getElementsByTagName("img")[0];
                         //设置图片大小
-                        img0.style.width = img1.style.width = Math.round(width / 2) + "px";
-                        img0.style.height = img1.style.height = Math.round(height / 2) + "px";
-                        img2.style.width = img3.style.width = width - img0.width + "px";  //这样计算是防止非整数导致整体宽度偏差
-                        img2.style.height = img3.style.height = height - img0.height + "px";
+                        w = Math.round(width / 2);
+                        var h = Math.round(height / 2);
+                        img0.style.width = img1.style.width = w + "px";
+                        img0.style.height = img1.style.height = h + "px";
+                        img2.style.width = img3.style.width = width - w + "px";  //这样计算是防止非整数导致整体宽度偏差
+                        img2.style.height = img3.style.height = height - h + "px";
                         //创建左右容器
                         var left = document.createElement("div");
                         right = document.createElement("div");
@@ -138,13 +141,17 @@
                         //第五张图片
                         var img4 = _imagesDiv[4].getElementsByTagName("img")[0];
                         //设置图片大小
-                        img0.style.width = Math.round(width * 2 / 3) + "px";
-                        img0.style.height = Math.round(height * 2 / 3) + "px";
-                        img1.style.width = Math.round(width / 3) + "px";
-                        img2.style.width = img0.width - img1.width + "px";  //防止下面两张图片之间产生空白
-                        img1.style.height = img2.style.height = height - img0.height + "px";
-                        img3.style.width = img3.style.height = img4.style.width = width - img0.width + "px";
-                        img4.style.height = height - img3.height + "px";
+                        var w0 = Math.round(width * 2 / 3);
+                        var w1 = Math.round(width / 3);
+                        var w2 = width - w0;
+                        var h1 = Math.round(height * 2 / 3);
+                        img0.style.width = w0 + "px";
+                        img0.style.height = h1 + "px";
+                        img1.style.width = w1 + "px";
+                        img2.style.width = w0 - w1 + "px";  //防止下面两张图片之间产生空白
+                        img1.style.height = img2.style.height = height - h1 + "px";
+                        img3.style.width = img3.style.height = img4.style.width = w2 + "px";
+                        img4.style.height = height - w2 + "px";
                         //创建容器
                         left = document.createElement("div");
                         var leftBottom = document.createElement("div");
@@ -180,15 +187,19 @@
                         //第六张图片
                         var img5 = _imagesDiv[5].getElementsByTagName("img")[0];
                         //设置图片大小
-                        img0.style.width = Math.round(width * 2 / 3) + "px";
-                        img0.style.height = Math.round(height * 2 / 3) + "px";
-                        img1.style.width = Math.round(width / 3) + "px";
-                        img2.style.width = img0.width - img1.width + "px";
-                        img3.style.width = img4.style.width = img5.style.width = width - img0.width + "px";
-                        img1.style.height = img2.style.height = height - img0.height + "px";
-                        img3.style.height = Math.round(img0.height / 2) + "px";
-                        img4.style.height = img0.height - img3.height + "px";
-                        img5.style.height = height - img0.height + "px";
+                        w0 = Math.round(width * 2 / 3);
+                        w1 = Math.round(width / 3);
+                        h1 = Math.round(height * 2 / 3);
+                        var h2 = Math.round(h1 / 2);
+                        img0.style.width = w0 + "px";
+                        img0.style.height = h1 + "px";
+                        img1.style.width = w1 + "px";
+                        img2.style.width = w0 - w1 + "px";
+                        img3.style.width = img4.style.width = img5.style.width = width - w0 + "px";
+                        img1.style.height = img2.style.height = height - h1 + "px";
+                        img3.style.height = h2 + "px";
+                        img4.style.height = h1 - h2 + "px";
+                        img5.style.height = height - h1 + "px";
                         //创建容器
                         left = document.createElement("div");
                         leftBottom = document.createElement("div");
