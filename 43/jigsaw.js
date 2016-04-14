@@ -69,6 +69,7 @@
                         //右边图片裁剪
                         _imagesDiv[1].style.webkitMaskImage = "-webkit-linear-gradient(" + deg + "deg, transparent 50%, white 50%)";
                         _imagesDiv[1].style.maskImage = "linear-gradient(" + deg + "deg, transparent 50%, white 50%)";
+                        _imagesDiv[1].style.clipPath = "url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMCIgaGVpZ2h0PSIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICAgIDxjbGlwUGF0aCBpZD0iY2xpcCIgY2xpcFBhdGhVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPg0KICAgICAgICA8cG9seWdvbiBwb2ludHM9IjAuNjY2IDAsMSAwLDEgMSwwLjMzMyAxIj4NCiAgICAgICAgPC9wb2x5Z29uPg0KICAgIDwvY2xpcFBhdGg+DQo8L3N2Zz4=#clip)";
                         break;
                     case 3:
                         //第一张图片
