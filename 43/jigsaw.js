@@ -58,7 +58,8 @@
                         //第二张图片
                         var img1 = _imagesDiv[1].getElementsByTagName("img")[0];
                         //设置图片大小
-                        img0.style.width = img1.style.width = Math.ceil(width * 2 / 3) + "px";
+                        var w = Math.ceil(width * 2 / 3);
+                        img0.style.width = img1.style.width = w + "px";
                         img0.style.height = img1.style.height = height + "px";
                         //右边图片包围框
                         _imagesDiv[1].style.width = width + "px";
@@ -79,7 +80,7 @@
                         //第三张图片
                         var img2 = _imagesDiv[2].getElementsByTagName("img")[0];
                         //设置图片大小
-                        var w = Math.round(height / 2);
+                        w = Math.round(height / 2);
                         img1.style.width = img1.style.height = img2.style.width = img2.style.height = w + "px";
                         img0.style.width = width - w + "px";
                         img0.style.height = height + "px";
