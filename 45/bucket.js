@@ -125,6 +125,14 @@
                     _element.appendChild(div);
                 }
             };
+            /**
+             * 获取行加载进度
+             * 虽然是个没用的功能。。。因为网速慢，给个进度
+             * @returns {number}
+             */
+            this.getProgress = function() {
+                return Math.round(_committed.width / _maxWidth * 10000) / 100;
+            };
             return this;
         };
         //返回构造的对象

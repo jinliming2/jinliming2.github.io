@@ -8,11 +8,38 @@
           content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta name="author" content="金黎明,Liming Jin,jinliming2@gmail.com,TianJin China"/>
     <title>IFE Task 45</title>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+        .progress {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        #progress {
+            position: relative;
+            width: 0%;
+            background: rgba(0, 255, 0, 0.8);
+            height: 100%;
+            top: -40px;
+            z-index: -1;
+        }
+        #bucket {
+            margin: 0 auto;
+        }
+    </style>
     <!-- 包含木桶布局类库 -->
     <script src="./bucket.js"></script>
 </head>
 <body>
 <div id="bucket"></div>
+<div class="progress">
+    <span id="progressTip">正在加载图片……</span>
+    <div id="progress"></div>
+</div>
 <script>
     "use strict";
     //调用执行
@@ -34,9 +61,17 @@
                 "图片大小：" + width + "×" + height + "，分类：" + types[type]
         );
     }
-    for(var i = 0; i < 100; i++) {
+    for(var i = 0; i < 30; i++) {
         loadImage();
     }
+    //进度显示
+    var progressBar = document.getElementById("progress");
+    var progressTip = document.getElementById("progressTip");
+    setInterval(function() {
+        var progress = bucket.getProgress();
+        progressBar.style.width = Math.round(progress) + "%";
+        progressTip.innerHTML = "正在加载图片……（" + progress + "%）";
+    }, 500);
 </script>
 </body>
 </html>
