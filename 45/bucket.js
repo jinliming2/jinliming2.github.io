@@ -27,6 +27,8 @@
                 images: [],
                 width: 0
             };
+            //正在加载图片
+            var _loading = 0;
             /**
              * 初始化
              * @param width 容器宽度
@@ -54,6 +56,7 @@
              * @param alt 注释
              */
             this.addImage = function(src, title, alt) {
+                _loading++;
                 title = title || "";
                 alt = alt || "";
                 //创建图片
@@ -66,6 +69,10 @@
                     };
                     //布局整理
                     calculate();
+                    _loading--;
+                };
+                img.onerror = function() {
+                    _loading--;
                 };
                 img.title = title;
                 img.alt = alt;
@@ -132,6 +139,13 @@
              */
             this.getProgress = function() {
                 return Math.round(_committed.width / _maxWidth * 10000) / 100;
+            };
+            /**
+             * 是否正在加载图片
+             * @returns {boolean}
+             */
+            this.loading = function() {
+                return _loading > 0;
             };
             return this;
         };

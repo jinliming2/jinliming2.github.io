@@ -13,6 +13,10 @@
             padding: 0;
             margin: 0;
         }
+        #tip {
+            text-align: center;
+            line-height: 40px;
+        }
         .progress {
             width: 100%;
             height: 40px;
@@ -21,11 +25,15 @@
         }
         #progress {
             position: relative;
-            width: 0%;
+            width: 0;
             background: rgba(0, 255, 0, 0.8);
             height: 100%;
             top: -40px;
             z-index: -1;
+            -webkit-transition: linear 0.5s;
+            -moz-transition: linear 0.5s;
+            -o-transition: linear 0.5s;
+            transition: linear 0.5s;
         }
         #bucket {
             margin: 0 auto;
@@ -35,6 +43,7 @@
     <script src="./bucket.js"></script>
 </head>
 <body>
+<div id="tip">本页面的所有图片来自其他网站提供的随机图片。图片加载速度较慢，请耐心等待。</div>
 <div id="bucket"></div>
 <div class="progress">
     <span id="progressTip">正在加载图片……</span>
@@ -61,17 +70,34 @@
                 "图片大小：" + width + "×" + height + "，分类：" + types[type]
         );
     }
-    for(var i = 0; i < 30; i++) {
+    for(var i = 0; i < 50; i++) {
         loadImage();
     }
+    var num = 1;
     //进度显示
     var progressBar = document.getElementById("progress");
     var progressTip = document.getElementById("progressTip");
     setInterval(function() {
-        var progress = bucket.getProgress();
-        progressBar.style.width = Math.round(progress) + "%";
-        progressTip.innerHTML = "正在加载图片……（" + progress + "%）";
+        if(bucket.loading()) {
+            var progress = bucket.getProgress();
+            progressBar.style.width = Math.round(progress) + "%";
+            progressTip.innerHTML = "正在加载第" + num + "波图片……（" + progress + "%）";
+        } else {
+            progressBar.style.width = "0";
+            progressTip.innerHTML = "";
+        }
     }, 500);
+    //滚动加载
+    window.onscroll = function() {
+        if(document.body.scrollTop + document.documentElement.clientHeight >= document.body.scrollHeight - 50) {
+            if(!bucket.loading()) {
+                num++;
+                for(var i = 0; i < 50; i++) {
+                    loadImage();
+                }
+            }
+        }
+    }
 </script>
 </body>
 </html>
