@@ -15,7 +15,11 @@
         }
         #tip {
             text-align: center;
-            line-height: 40px;
+            line-height: 30px;
+        }
+        .red {
+            font-weight: bold;
+            color: red;
         }
         .progress {
             width: 100%;
@@ -47,7 +51,9 @@
     本页面的所有图片来自其他网站提供的随机图片。图片加载速度较慢，请耐心等待。<br />
     讲道理，图片应该完全随机动态加载的，所以预先并不知道图片大小（虽然下面调用的时候图片大小是随机生成的，也就是已知的）。<br />
     所以在加载的时候，都是放到后台进行加载，当图片加载成功之后才可以取得图片的实际尺寸，再进行计算进行行布局。<br />
-    所以在显示的时候是一行一行显示的。
+    所以在显示的时候是一行一行显示的。<br />
+    必须能填满一行才会显示。本demo是使用ajax无尽的加载，所以会一直往后追加图片。每次追加50张，最后调用flush输出剩余，
+    <span class="red">保证50张一组，最后一行可能排不满！</span>
 </div>
 <div id="bucket"></div>
 <div class="progress">
@@ -59,6 +65,10 @@
     //调用执行
     var bucket = Bucket("bucket");
     bucket.init(document.body.clientWidth - 50);
+    //图片加载完成回调，输出剩余图片
+    bucket.setCallback(function() {
+        bucket.flush();  //直接输出剩余图片，注释这一行可以保证输出的每一行都是满的。
+    });
     //加载图片
     function loadImage() {
         var types = [

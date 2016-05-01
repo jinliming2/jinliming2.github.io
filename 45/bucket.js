@@ -50,6 +50,18 @@
                 _maxWidth = _width * _height / (_height - deviation);
             };
             /**
+             * 图片加载完成回调
+             */
+            var _callback = null;
+            /**
+             * 设置图片加载完成回调
+             * 可以设置这个函数，在后台加载的图片全部加载完成后自动回调。
+             * @param callback 回调函数
+             */
+            this.setCallback = function(callback) {
+                _callback = callback;
+            };
+            /**
              * 添加图片
              * @param src 链接
              * @param title 标题
@@ -69,10 +81,14 @@
                     };
                     //布局整理
                     calculate();
-                    _loading--;
+                    if(--_loading == 0 && _callback instanceof Function) {
+                        _callback();
+                    }
                 };
                 img.onerror = function() {
-                    _loading--;
+                    if(--_loading == 0 && _callback instanceof Function) {
+                        _callback();
+                    }
                 };
                 img.title = title;
                 img.alt = alt;
@@ -100,8 +116,13 @@
                 }
                 //当前行满足一行条件
                 if(_committed.width >= _minWidth || total >= _minWidth) {
-                    //创建行
-                    var div = document.createElement("div");
+                    disp(true);
+                }
+            };
+            var disp = function(resize) {
+                //创建行
+                var div = document.createElement("div");
+                if(resize) {
                     var margin = (_committed.images.length - 1) * _margin;
                     var scale = (_width - margin) / (_committed.width - margin - _margin);
                     var h = Math.round(_height * scale);
@@ -127,14 +148,31 @@
                     for(w = _width - (w + margin); w != 0; w += -w / Math.abs(w)) {
                         _committed.images[--i].obj.width -= -w / Math.abs(w);
                     }
-                    _element.appendChild(div);
+                } else {
                     for(i = 0; i < _committed.images.length; i++) {
-                        fadeIn(_committed.images[i].obj);
+                        _committed.images[i].obj.height = _height;
+                        _committed.images[i].obj.style.margin = Math.floor(_margin / 2) + "px "
+                            + Math.floor(_margin / 2) + "px "
+                            + Math.ceil(_margin / 2) + "px " + Math.ceil(_margin / 2) + "px ";
+                        if(i == 0) {
+                            _committed.images[i].obj.style.marginLeft = "0";
+                        } else if(i == _committed.images.length - 1) {
+                            _committed.images[i].obj.style.marginRight = "0";
+                        }
+                        _committed.images[i].obj.style.mozOpacity = _committed.images[i].obj.style.opacity = 0;
+                        div.appendChild(_committed.images[i].obj);
                     }
-                    //完成当前行，进行下一行布局
-                    _committed.images = [];
-                    _committed.width = 0;
                 }
+                _element.appendChild(div);
+                for(i = 0; i < _committed.images.length; i++) {
+                    fadeIn(_committed.images[i].obj);
+                }
+                //完成当前行，进行下一行布局
+                _committed.images = [];
+                _committed.width = 0;
+            };
+            this.flush = function() {
+                disp(false);
             };
             /**
              * 淡入效果
