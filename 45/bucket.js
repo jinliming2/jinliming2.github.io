@@ -116,6 +116,7 @@
                         } else if(i == _committed.images.length - 1) {
                             _committed.images[i].obj.style.marginRight = "0";
                         }
+                        _committed.images[i].obj.style.mozOpacity = _committed.images[i].obj.style.opacity = 0;
                         div.appendChild(_committed.images[i].obj);
                     }
                     //图像大小微调
@@ -126,10 +127,33 @@
                     for(w = _width - (w + margin); w != 0; w += -w / Math.abs(w)) {
                         _committed.images[--i].obj.width -= -w / Math.abs(w);
                     }
+                    _element.appendChild(div);
+                    for(i = 0; i < _committed.images.length; i++) {
+                        fadeIn(_committed.images[i].obj);
+                    }
                     //完成当前行，进行下一行布局
                     _committed.images = [];
                     _committed.width = 0;
-                    _element.appendChild(div);
+                }
+            };
+            /**
+             * 淡入效果
+             * @param img 图片淡入显示
+             */
+            var fadeIn = function(img) {
+                if(img.style.mozOpacity && img.style.mozOpacity - 0 < 1) {
+                    img.style.mozOpacity = img.style.mozOpacity - 0 + 0.1;
+                }
+                if(img.style.opacity && img.style.opacity - 0 < 1) {
+                    img.style.opacity = img.style.opacity - 0 + 0.1;
+                }
+                if(
+                    (img.style.mozOpacity && img.style.mozOpacity - 0 < 1) ||
+                    (img.style.opacity && img.style.opacity - 0 < 1)
+                ) {
+                    setTimeout(function() {
+                        fadeIn(img);
+                    }, 100);
                 }
             };
             /**
