@@ -13,8 +13,8 @@
           content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta name="author" content="金黎明,Liming Jin,jinliming2@gmail.com,TianJin China"/>
     <title>Album</title>
-    <link rel="stylesheet" href="./album.min.css"/>
-    <script src="./album.min.js"></script>
+    <link rel="stylesheet" href="./css/album.min.css"/>
+    <script src="./js/album.min.js"></script>
     <style>
         html, body {
             width: 100%;
@@ -149,7 +149,7 @@
         } else if(rBARREL.checked && layout != obj.LAYOUT.BARREL) {
             layout = obj.LAYOUT.BARREL;
             obj.setLayout(layout);
-        } else {
+        } else if(rWATERFALL.checked && layout != obj.LAYOUT.WATERFALL) {
             layout = obj.LAYOUT.WATERFALL;
             obj.setLayout(layout);
         }
@@ -198,7 +198,7 @@
             obj.setFullScreen(obj.FULL_SCREEN.NONE);
         } else if(rPAGE.checked) {
             obj.setFullScreen(obj.FULL_SCREEN.PAGE);
-        } else {
+        } else if(rWINDOW.checked) {
             obj.setFullScreen(obj.FULL_SCREEN.WINDOW);
         }
     });
