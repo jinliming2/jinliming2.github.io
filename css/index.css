@@ -1,212 +1,228 @@
-@font-face {
-    font-family: "web-font";
-    src: url('./fonts/Web/web.eot'); /* IE9*/
-    src: url('./fonts/Web/web.eot#web-') format('embedded-opentype'), /* IE6-IE8 */
-    url('./fonts/Web/web.woff') format('woff'), /* chrome, firefox */
-    url('./fonts/Web/web.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-    url('./fonts/Web/web.svg#web-') format('svg'); /* iOS 4.1- */
-}
 html, body {
-    background-color: #272E38;
-    padding: 0;
-    margin: 0;
     width: 100%;
     height: 100%;
     font-size: 100%;
+    overflow-x: hidden;
+    cursor: default;
+    min-width: 1000px;
+}
+
+body {
+    display: flex;
+    background-color: #d9e9ff;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-family: "Source Code Pro", "Microsoft YaHei", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", sans-serif;
 }
-textarea {
-    width: 100%;
-    line-height: 30px;
-    height: 90px;
-    resize: none;
-    border: none;
-    word-break: break-all;
+
+header {
+    background-color: #272e38;
+    width: 28%;
+    min-height: 100%;
+    max-width: 500px;
+    padding-bottom: 1px;
+    animation: fade-in 1s ease;
 }
-.select {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+
+#head {
+    padding: 5%;
+    position: relative;
+    text-align: center;
 }
-@media screen and (min-device-width: 1000px) {
-    #main {
-        position: absolute;
-        bottom: 8%;
-        left: 4%;
-    }
-    #head-map {
-        display: -webkit-flex;
-        display: flex;
-        align-items: flex-end;
-    }
-    #head {
-        width: 180px;
-        height: 180px;
-        -webkit-border-radius: 100px;
-        -moz-border-radius: 100px;
-        border-radius: 100px;
-        border: 10px #313D4D solid;
-    }
-    #location {
-        width: 8px;
-        height: 8px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
-        background-color: white;
-        position: relative;
-        top: 26%;
-        left: 78%;
-    }
-    #map {
-        width: 290px;
-        height: 107px;
-        margin-left: 30px;
-    }
-    #map svg {
-        width: 290px;
-        height: 107px;
-        margin-top: -8px;
-    }
-    #introduce {
-        margin: 30px 0;
-        display: -webkit-flex;
-        display: flex;
-    }
-    #block {
-        width: 10px;
-        background-color: #676C73;
-        margin-right: 10px;
-    }
-    #name-description {
-        color: white;
-        font-family: "web-font", "Comic Sans MS", "隶书", cursive;
-    }
-    #name {
-        font-size: 1.8rem;
-    }
-    #city {
-        font-size: 1.1rem;
-    }
-    #description {
-        font-size: 1rem;
-    }
-    #icons {
-        display: -webkit-flex;
-        display: flex;
-        flex-wrap: wrap;
-    }
-    #icons a {
-        display: block;
-        width: 65px;
-        height: 65px;
-        line-height: 65px;
-        text-align: center;
-        color: #676C73;
-        font-size: 35px;
-        text-decoration: none;
-        -webkit-transition: ease-out 0.2s;
-        -moz-transition: ease-out 0.2s;
-        -o-transition: ease-out 0.2s;
-        transition: ease-out 0.2s;
-        float: left; /** For IE = 9 */
-    }
-    #icons a:hover {
-        font-size: 65px;
-        color: white;
-    }
-    .pc {
-        display: block !important;
-    }
-    .mobile {
-        display: none !important;
-    }
+
+#head img {
+    border-radius: 50%;
+    border: #313D4D solid;
 }
-@media screen and (max-device-width: 1000px) {
-    #main {
-        margin-top: 5%;
-        width: 100%;
+
+#head-photo {
+    width: 90%;
+    max-width: 310px;
+    border-width: 10px !important;
+}
+
+#head-MYOTee {
+    width: 30%;
+    max-width: 93px;
+    left: 15%;
+    bottom: 6%;
+    position: absolute;
+    border-width: 5px !important;
+    -webkit-transition: ease .5s;
+    -moz-transition: ease .5s;
+    -o-transition: ease .5s;
+    transition: ease .5s;
+}
+
+#head-MYOTee:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+#information, #information a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+#information div {
+    margin: 2px 0;
+}
+#information a:hover {
+    text-decoration: underline wavy;
+}
+
+#name {
+    font-size: 3rem;
+}
+
+#english-name {
+    font-size: 1.5rem;
+}
+
+#languages {
+    margin-top: 15px;
+}
+
+.language {
+    margin: 2%;
+    width: 96%;
+    background-color: #262626;
+    color: white;
+    border-radius: .45rem;
+    box-shadow: 0 5px 4px -6px #aaa;
+}
+
+.language div {
+    font-size: .9rem;
+    display: inline-block;
+    text-align: right;
+    white-space: nowrap;
+    border-radius: .45rem;
+    padding-right: .5rem;
+    animation: process 1.5s ease;
+}
+
+aside {
+    width: 72%;
+    min-height: 100%;
+    animation: fade-in 2s ease;
+}
+
+.block {
+}
+
+.block-title {
+    background-color: #272e38;
+    padding: 8px 16px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.list {
+    padding: 8px;
+    font-size: 1.2rem;
+}
+
+.label:before {
+    color: white;
+    padding: 2px 8px;
+    font-size: .7rem;
+}
+
+.label-work:before {
+    content: '工作';
+    background-color: #178600;
+}
+
+.label-practice:before {
+    content: '实习';
+    background-color: #ffac45;
+}
+
+.label-project:before {
+    content: '项目';
+    background-color: #563d7c;
+}
+
+.start-finish-time {
+    font-size: .9rem;
+}
+
+.job {
+    font-size: .8rem;
+    background-color: #f34b7d;
+    color: white;
+    padding: 2px;
+}
+
+#final-target {
+    padding: 8px 20px;
+}
+
+#final-target span {
+    color: #a8a8a8;
+    background-color: #a8a8a8;
+    cursor: cell;
+    cursor: -webkit-grabbing;
+}
+
+#icons {
+    margin: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#icons a {
+    display: block;
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    color: #a8a8a8;
+    font-size: 35px;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: ease-out 0.2s;
+    -moz-transition: ease-out 0.2s;
+    -o-transition: ease-out 0.2s;
+    transition: ease-out 0.2s;
+    float: left; /** For IE = 9 */
+}
+#icons a:hover {
+    font-size: 65px;
+    color: #272e38;
+}
+
+.pc {
+    display: block !important;
+}
+
+.mobile {
+    display: none !important;
+}
+
+@media (max-device-width: 1000px) {
+    html, body {
+        min-width: 400px;
     }
-    #head-map {
-        display: -webkit-flex;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-    }
-    #head {
-        width: 120px;
-        height: 120px;
-        -webkit-border-radius: 70px;
-        -moz-border-radius: 70px;
-        border-radius: 70px;
-        border: 10px #313D4D solid;
-    }
-    #location {
-        width: 8px;
-        height: 8px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
-        background-color: white;
-        position: relative;
-        top: 26%;
-        left: 78%;
-    }
-    #map {
-        width: 290px;
-        height: 107px;
-        margin: 10px 0 0 10px;
-    }
-    #map svg {
-        width: 290px;
-        height: 107px;
-        margin-top: -8px;
-    }
-    #introduce {
-        margin: 8% 0;
-        display: -webkit-flex;
-        display: flex;
-    }
-    #block {
-        width: 10px;
-        background-color: #676C73;
-        margin: 0 10px 0 5%;
-    }
-    #name-description {
-        color: white;
-        font-family: "web-font", "Comic Sans MS", "隶书", cursive;
-        margin-right: 10px;
-    }
-    #name {
-        font-size: 1.8rem;
-    }
-    #city {
-        font-size: 1.1rem;
-    }
-    #description {
-        font-size: 1rem;
-    }
-    #icons {
-        display: -webkit-flex;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    #icons a {
-        display: block;
-        width: 65px;
-        height: 65px;
-        line-height: 65px;
-        text-align: center;
-        color: #676C73;
-        font-size: 40px;
-        text-decoration: none;
-    }
+
     .pc {
         display: none !important;
     }
@@ -215,260 +231,15 @@ textarea {
         display: block !important;
     }
 }
-#messageBody, #messageShadow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: -webkit-flex;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-#messageShadow {
-    background-color: black;
-}
-#messageBox {
-    width: 500px;
-    min-width: 100px;
-    max-width: 100%;
-    background-color: white;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    overflow: hidden;
-}
-#messageBox *  {
-    max-width: 100%;
-}
-#messageTitle {
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    color: white;
-    padding: 0 20px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background-color: #676C73;
-}
-#messageClose {
-    float: right;
-    margin: 0 12px;
-    width: 26px;
-    text-align: center;
-    line-height: 40px;
-    font-weight: bold;
-    font-size: 18px;
-    color: darkred;
-    cursor: pointer;
-    -webkit-transition: ease-out 0.2s;
-    -moz-transition: ease-out 0.2s;
-    -o-transition: ease-out 0.2s;
-    transition: ease-out 0.2s;
-}
-#messageClose:hover {
-    font-size: 26px;
-    color: red;
-}
-#messageContent {
-    width: 100%;
-    padding: 5px 20px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-@-webkit-keyframes fade-in {
+
+@keyframes process {
     from {
-        opacity: 0;
-    }
-    to {
-        opacity: 0.75;
+        width: 0;
     }
 }
-@-khtml-keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 0.75;
-    }
-}
-@-moz-keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 0.75;
-    }
-}
-@-ms-keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 0.75;
-    }
-}
-@-o-keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 0.75;
-    }
-}
+
 @keyframes fade-in {
     from {
         opacity: 0;
-    }
-    to {
-        opacity: 0.75;
-    }
-}
-@-webkit-keyframes display {
-    from {
-        margin-top: -1000px;
-    }
-    to {
-        margin-top: 0;
-    }
-}
-@-khtml-keyframes display {
-    from {
-        margin-top: -1000px;
-    }
-    to {
-        margin-top: 0;
-    }
-}
-@-moz-keyframes display {
-    from {
-        margin-top: -1000px;
-    }
-    to {
-        margin-top: 0;
-    }
-}
-@-ms-keyframes display {
-    from {
-        margin-top: -1000px;
-    }
-    to {
-        margin-top: 0;
-    }
-}
-@-o-keyframes display {
-    from {
-        margin-top: -1000px;
-    }
-    to {
-        margin-top: 0;
-    }
-}
-@keyframes display {
-    from {
-        margin-top: -1000px;
-    }
-    to {
-        margin-top: 0;
-    }
-}
-@-webkit-keyframes fade-out {
-    from {
-        opacity: 0.75;
-    }
-    to {
-        opacity: 0;
-    }
-}
-@-khtml-keyframes fade-out {
-    from {
-        opacity: 0.75;
-    }
-    to {
-        opacity: 0;
-    }
-}
-@-moz-keyframes fade-out {
-    from {
-        opacity: 0.75;
-    }
-    to {
-        opacity: 0;
-    }
-}
-@-ms-keyframes fade-out {
-    from {
-        opacity: 0.75;
-    }
-    to {
-        opacity: 0;
-    }
-}
-@-o-keyframes fade-out {
-    from {
-        opacity: 0.75;
-    }
-    to {
-        opacity: 0;
-    }
-}
-@keyframes fade-out {
-    from {
-        opacity: 0.75;
-    }
-    to {
-        opacity: 0;
-    }
-}
-@-webkit-keyframes close {
-    from {
-        margin-top: 0;
-    }
-    to {
-        margin-top: 1000px;
-    }
-}
-@-khtml-keyframes close {
-    from {
-        margin-top: 0;
-    }
-    to {
-        margin-top: 1000px;
-    }
-}
-@-moz-keyframes close {
-    from {
-        margin-top: 0;
-    }
-    to {
-        margin-top: 1000px;
-    }
-}
-@-ms-keyframes close {
-    from {
-        margin-top: 0;
-    }
-    to {
-        margin-top: 1000px;
-    }
-}
-@-o-keyframes close {
-    from {
-        margin-top: 0;
-    }
-    to {
-        margin-top: 1000px;
-    }
-}
-@keyframes close {
-    from {
-        margin-top: 0;
-    }
-    to {
-        margin-top: 1000px;
     }
 }
