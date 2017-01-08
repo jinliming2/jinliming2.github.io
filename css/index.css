@@ -1,3 +1,15 @@
+@keyframes process {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
 html, body {
     width: 100%;
     height: 100%;
@@ -84,6 +96,7 @@ header {
 #information div {
     margin: 2px 0;
 }
+
 #information a:hover {
     text-decoration: underline wavy;
 }
@@ -125,9 +138,6 @@ aside {
     animation: fade-in 2s ease;
 }
 
-.block {
-}
-
 .block-title {
     background-color: #272e38;
     padding: 8px 16px;
@@ -167,6 +177,7 @@ aside {
 }
 
 .job {
+    display: inline-block;
     font-size: .8rem;
     background-color: #f34b7d;
     color: white;
@@ -189,6 +200,7 @@ aside {
     display: flex;
     flex-wrap: wrap;
 }
+
 #icons a {
     display: block;
     width: 65px;
@@ -205,6 +217,7 @@ aside {
     transition: ease-out 0.2s;
     float: left; /** For IE = 9 */
 }
+
 #icons a:hover {
     font-size: 65px;
     color: #272e38;
@@ -218,9 +231,59 @@ aside {
     display: none !important;
 }
 
-@media (max-device-width: 1000px) {
+@media (max-device-width: 999px) {
     html, body {
-        min-width: 400px;
+        min-width: initial;
+    }
+
+    body {
+        display: initial;
+    }
+
+    header {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        max-width: initial;
+    }
+
+    #top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 310px;
+    }
+
+    #head {
+        padding: 2%;
+    }
+
+    #languages {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: initial;
+        justify-content: center;
+        align-content: space-around;
+        height: calc(100% - 310px);
+    }
+
+    .language {
+        width: 40%;
+        margin: 0 2%;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    .start-finish-time:after {
+        content: '\20';
+        display: block;
+    }
+
+    .list strong {
+        display: inline-block;
+        text-indent: 3rem;
     }
 
     .pc {
@@ -230,16 +293,78 @@ aside {
     .mobile {
         display: block !important;
     }
-}
 
-@keyframes process {
-    from {
-        width: 0;
+    #icons a {
+        font-size: 40px;
+    }
+
+    #icons a:hover {
+        font-size: 35px;
+        color: #272e38;
     }
 }
 
-@keyframes fade-in {
-    from {
-        opacity: 0;
+@media (max-device-width: 599px) {
+    header {
+        height: initial;
+    }
+
+    #top {
+        display: initial;
+    }
+
+    #head-MYOTee {
+        left: 20%;
+    }
+
+    #languages {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    .language {
+        margin: 5px 2%;
+    }
+
+    .list strong {
+        display: initial;
+        text-indent: initial;
+    }
+}
+
+@media (max-device-width: 499px) {
+    #icons {
+        justify-content: center;
+    }
+
+    #icons a {
+        float: initial;
+    }
+}
+
+@media (max-device-width: 259px) {
+    * {
+        overflow: hidden;
+    }
+
+    header:before {
+        content: '屏幕太小了！该淘汰了吧？？！';
+        background-color: #272e38;
+        color: white;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
     }
 }
