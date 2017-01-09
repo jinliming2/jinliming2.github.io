@@ -64,6 +64,11 @@ body {
     font-family: "Source Code Pro", "Microsoft YaHei", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", sans-serif;
 }
 
+.copyable, .copyable * {
+    user-select: initial;
+    cursor: initial;
+}
+
 header {
     background-color: #272e38;
     width: 28%;
