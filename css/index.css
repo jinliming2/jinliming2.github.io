@@ -175,6 +175,10 @@ aside {
     font-weight: bold;
 }
 
+ul, ol {
+    margin-right: 8px;
+}
+
 .list {
     padding: 8px;
     font-size: 1.2rem;
